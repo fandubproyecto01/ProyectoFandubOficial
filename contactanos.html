@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Fandub | Contáctanos</title>
+    <style>
+        /* Previene el salto de diseño (Layout Shift) al cambiar entre páginas con y sin scrollbar */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        /* Estilos Globales - Minimalista Blanco y Negro */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+            overflow-x: hidden; /* Evita scrolls horizontales en pantallas móviles */
+        }
+
+        /* ==========================================================================
+           Barra de Navegación (Nav) - IDÉNTICA AL INDEX
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #eaeaea;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Botón de Hamburguesa (Oculto por defecto en PC) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #111111;
+            transition: all 0.3s ease;
+        }
+
+        /* Animación del botón de hamburguesa al transformarse en X */
+        .menu-toggle.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        /* Adaptación móvil de la Nav */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                display: none; /* Oculto por defecto en móvil */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                border-bottom: 1px solid #eaeaea;
+                padding: 20px;
+                gap: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            }
+
+            /* Clase que activa el menú con JavaScript */
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                font-size: 18px;
+                padding: 10px 0;
+            }
+        }
+
+        /* ==========================================================================
+           Contenido Principal
+           ========================================================================== */
+        main {
+            max-width: 1000px;
+            margin: 140px auto 80px auto;
+            padding: 0 20px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-header h1 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .contact-header p {
+            font-size: 18px;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info p {
+            color: #555555;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #111111;
+            font-weight: 600;
+            font-size: 16px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-item:hover {
+            opacity: 0.7;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f5f5f5;
+            border: 1px solid #eaeaea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .contact-form {
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 15px;
+            background-color: #ffffff;
+            color: #111111;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #000000;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #333333;
+        }
+
+        /* Ajustes específicos de contacto para móviles */
+        @media (max-width: 768px) {
+            main {
+                margin-top: 110px; /* Equilibra la distancia del menú */
+            }
+            .contact-header h1 {
+                font-size: 32px;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-form {
+                padding: 25px 20px;
+            }
+        }
+
+        footer {
+            border-top: 1px solid #eaeaea;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888888;
+            background-color: #fafafa;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Proyecto Fandub</div>
+            
+            <button class="menu-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav>
+                <ul id="navLinks">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="proyecto-fandub.html">Proyecto Fandub</a></li>
+                    <li><a href="contactanos.html" class="active">Contáctanos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-header">
+            <h1>Contáctanos</h1>
+            <p>¿Quieres participar en un doblaje, proponernos una colaboración o simplemente saludarnos? ¡Escríbenos!</p>
+        </div>
+
+        <section class="contact-container">
+            <div class="contact-info">
+                <h2>¿Cómo trabajar juntos?</h2>
+                <p>Siempre estamos buscando nuevas voces, editores de audio, traductores y diseñadores que compartan nuestro amor por el doblaje no oficial. También puedes encontrarnos directamente en nuestras redes oficiales:</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-item">
+                        <div class="social-icon">✉</div>
+                        <span>contacto@proyectofandub.com</span>
+                    </a>
+                    <a href="#" class="social-item">
+                        <div class="social-icon">💬</div>
+                        <span>Únete a nuestro Discord</span>
+                    </a>
+                    <a href="#" class="social-item">
+                        <div class="social-icon">▶</div>
+                        <span>Canal de YouTube</span>
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito!');">
+                <div class="form-group">
+                    <label for="name">Nombre / Nickname</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" placeholder="Escribe aquí tu propuesta o consulta..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Proyecto Fandub. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            // Alternar clases al presionar el botón
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+                mobileMenuBtn.classList.toggle('open');
+            });
+
+            // Cerrar el menú si el usuario toca la pantalla fuera de él
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('show');
+                    mobileMenuBtn.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
