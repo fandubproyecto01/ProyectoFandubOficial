@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Fandub | Sobre Nosotros</title>
+    <style>
+        /* Previene el salto de diseño (Layout Shift) al cambiar entre páginas con y sin scrollbar */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        /* Estilos Globales - Minimalista Blanco y Negro */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+            overflow-x: hidden; /* Evita scrolls horizontales en pantallas táctiles */
+        }
+
+        /* ==========================================================================
+           Barra de Navegación (Nav) - IDÉNTICA AL INDEX
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #eaeaea;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* Botón de Hamburguesa (Oculto por defecto en PC) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #111111;
+            transition: all 0.3s ease;
+        }
+
+        /* Animación del botón de hamburguesa al transformarse en X */
+        .menu-toggle.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: #000000;
+        }
+        .menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: #000000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        /* Adaptación móvil de la Nav y elementos */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                display: none; /* Oculto por defecto en móvil */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                border-bottom: 1px solid #eaeaea;
+                padding: 20px;
+                gap: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            }
+
+            /* Clase que activa el menú con JavaScript */
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                font-size: 18px;
+                padding: 10px 0;
+            }
+        }
+
+        /* ==========================================================================
+           Contenido Principal
+           ========================================================================== */
+        main {
+            max-width: 1000px;
+            margin: 140px auto 80px auto;
+            padding: 0 20px;
+        }
+
+        /* Cabecera de la Sección */
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-header h1 {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .about-header p {
+            font-size: 18px;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sección Dos Columnas */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-text p {
+            color: #444444;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Ilustración / Caja de Diseño Minimalista */
+        .about-graphic {
+            background-color: #f9f9f9;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* NUEVOS ESTILOS PARA EL LOGO */
+        .about-graphic img {
+            max-width: 80%; /* Evita que el logo sea muy grande */
+            height: auto;     /* Mantiene la proporción */
+            max-height: 250px; /* Limita la altura */
+        }
+
+        /* Sección de Flujo de Trabajo / Valores */
+        .values-section {
+            border-top: 1px solid #eaeaea;
+            padding-top: 60px;
+        }
+
+        .values-section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-item {
+            padding: 20px;
+        }
+
+        .value-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .value-item p {
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Ajustes adaptativos específicos de la sección en móviles */
+        @media (max-width: 768px) {
+            main {
+                margin-top: 110px; /* Reduce espacio superior para que no quede tan abajo en móviles */
+            }
+            .about-header h1 {
+                font-size: 32px;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-graphic {
+                height: 250px;
+            }
+            .about-graphic img {
+                max-height: 180px;
+            }
+        }
+
+        /* Pie de página */
+        footer {
+            border-top: 1px solid #eaeaea;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888888;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+        <header>
+        <div class="nav-container">
+            <div class="logo">Proyecto Fandub</div>
+            
+                        <button class="menu-toggle" id="mobileMenuBtn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav>
+                <ul id="navLinks">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="proyecto-fandub.html" class="active">Proyecto Fandub</a></li>
+                    <li><a href="contactanos.html">Contáctanos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <main>
+        <div class="about-header">
+            <h1>Sobre Nosotros</h1>
+            <p>Conoce la pasión, el esfuerzo y las voces detrás de cada una de nuestras adaptaciones.</p>
+        </div>
+
+        <section class="about-content">
+            <div class="about-text">
+                <h2>Pasión por el doblaje no oficial</h2>
+                <p>Proyecto Fandub nació como un espacio de encuentro para artistas de voz, editores y apasionados de la actuación. Nuestro objetivo es dar una interpretación única y con calidad profesional a contenidos que nos inspiran diariamente.</p>
+                <p>Trabajamos de forma colaborativa, adaptando guiones con respeto al material original y cuidando cada detalle técnico en la edición para entregar una experiencia auditiva del más alto nivel.</p>
+            </div>
+            <div class="about-graphic">
+                                <img src="img/logo.jpg" alt="Logo de Proyecto Fandub | Voz y Arte" />
+            </div>
+        </section>
+
+                <section class="values-section">
+            <h3>Nuestro Proceso Creativo</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h4>1. Traducción y Adaptación</h4>
+                    <p>No solo traducimos, adaptamos los diálogos para que fluyan de manera natural en nuestro idioma y coincidan con la sincronía de labios (lip-sync).</p>
+                </div>
+                <div class="value-item">
+                    <h4>2. Casting de Voces</h4>
+                    <p>Seleccionamos la voz ideal para cada personaje dentro de nuestro elenco de talentos para asegurar la máxima fidelidad emocional.</p>
+                </div>
+                <div class="value-item">
+                    <h4>3. Edición y Mezcla</h4>
+                    <p>Limpiamos el ruido, ecualizamos las voces y las integramos perfectamente con la música de fondo y los efectos de sonido (SFX).</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer>
+        <p>&copy; 2026 Proyecto Fandub. Todos los derechos reservados.</p>
+    </footer>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            // Alternar clases al presionar el botón
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+                mobileMenuBtn.classList.toggle('open');
+            });
+
+            // Cerrar el menú si el usuario toca la pantalla fuera de él
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('show');
+                    mobileMenuBtn.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
