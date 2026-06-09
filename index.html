@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheOmegaStudios - Inicio | AikoTheOrigins</title>
+    <link rel="icon" type="image/x-icon" href="img/icon123.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="img/logo.webp" alt="Logo" class="preloader-logo">
+            
+            <img src="gif/aiko porrista.gif" alt="Cargando..." class="preloader-gif">
+        </div>
+    </div> 
+    <!-- BARRA SUPERIOR -->
+    <header class="top-bar">
+        <div class="logo-container">
+            <img src="img/logo.webp" alt="Logo TheOmegaStudios" class="main-logo">
+        </div>
+        <div class="search-lang">
+            <div class="control-hoja-wrapper">
+                <button id="sakura-control" class="nav-music-btn">
+                    <i id="sakura-icon" class="fas fa-leaf"></i>
+                </button>
+            </div>
+                
+            <div class="music-container">
+                <button id="music-control" class="nav-music-btn">
+                    <i id="music-icon" class="fas fa-volume-up"></i>
+                </button>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.3">
+            </div>
+
+            <div class="search-box">
+                <input type="text" placeholder="Buscar Aiko, voces...">
+                <i class="fas fa-search"></i>
+            </div>
+            <span class="lang">ES <i class="fas fa-chevron-down"></i></span>
+            <audio id="bg-music" loop></audio>
+        </div>
+    </header>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="main-nav">
+        <ul>
+            <li class="active"><a href="index.html"><i class="fas fa-home"></i>INICIO</a></li>
+            <li><a href="personajes.html"><i class="fas fa-users"></i>PERSONAJES</a></li>
+            <li><a href="mundo-aiko.html"><i class="fas fa-globe-americas"></i>MUNDO AIKO</a></li>
+            <li><a href="aiko-origins.html"><i class="fas fa-book-open"></i>AIKOTHEORIGINS</a></li>
+            <li><a href="aiko-go.html"><i class="fas fa-book-open"></i>AIKOGO!</a></li>
+            <li><a href="proyectos.html"><i class="fas fa-tasks"></i>PROYECTOS</a></li>
+            <li><a href="dobladores.html"><i class="fas fa-microphone-alt"></i>VOCES OFICIALES</a></li>
+            <li><a href="sobre-mi.html"><i class="fas fa-user-circle"></i>SOBRE MÍ</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+        
+        <!-- CARRUSEL -->
+        <section class="carrusel-simulado">
+            <div class="carrusel-contenedor" id="carruselContenedor">
+                <div class="carrusel-item active item-video">
+                    <span class="badge-destacado">LO MÁS VISTO</span>
+                    <iframe 
+                        src="https://www.youtube.com/embed/sxepfPibFE8?si=-1wTCzDtVAgdoXl2" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="overlay">
+                        <h1>Primer Avance</h1>
+                        <p>Mira el adelanto de nuestro próximo proyecto.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-item next item-imagen" style="background-image: url('img/hero_aiko.png')">
+                    <div class="overlay">
+                        <h1>AikoTheOrigins: El Cómic</h1>
+                        <p>Creado por TheOmegaStudios. Descubre el origen.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-item item-imagen" style="background-image: url('img/hero_doblaje.png')">
+                    <div class="overlay">
+                        <h1>Audiciones Abiertas</h1>
+                        <p>¡Buscamos voces para la Obra! Únete a TheOmegaStudios.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-item prev item-imagen" style="background-image: url('img/hero_proyectos.png')">
+                    <div class="overlay">
+                        <h1>Nuevos Horizontes</h1>
+                        <p>Próximos proyectos y colaboraciones de TheOmegaStudios.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-btn prev-btn" onclick="cambiarImagen(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-btn next-btn" onclick="cambiarImagen(1)"><i class="fas fa-chevron-right"></i></button>
+        </section>
+
+        <!-- PANEL DE ESTADO -->
+        <section class="status-panel">
+            <div class="status-header">
+                <i class="fas fa-stream"></i> ESTADO DE PRODUCCIÓN
+            </div>
+            <div class="status-list">
+                <div class="status-item">
+                    <span class="project-name">AikoTheOrigins</span>
+                    <span class="badge badge-online">🟠 En producción</span>
+                </div>
+            
+                <div class="status-item">
+                    <span class="project-name">Fandub / Doblaje</span>
+                    <span class="badge badge-auditions">🟠 En audiciones</span>
+                </div>
+
+                <div class="status-item">
+                    <span class="project-name">Proyecto Secreto</span>
+                    <span class="badge badge-prep">🔴 En pre-producción</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE NOTICIAS -->
+        <section class="noticias-caja">
+            <div class="noticia-header">
+                <h2>NOTICIAS RECIENTES</h2>
+            </div>
+            <div class="noticia-body">
+                <ul>
+                    <li><strong>11.05.2026</strong> [COLABORACIÓN] Gracias por todo el apoyo, Tenemos Ultimas audiciones!!</li>
+                    <li><strong>10.04.2026</strong> [CÓMIC] Lanzamiento del Capítulo 1 de AikoTheOrigins En Producción!!</li>
+                    <li><strong>04.04.2026</strong> [FANDUB] Buscamos voces para algunos personajes, audiciones abiertas.</li>
+                    <li><strong>05.03.2025</strong> [COLABORACIÓN] TheOmegaStudios x Proyecto Fandub una enorme colaboración.</li>
+                    <li><strong>27.01.2024</strong> [STUDIO] TheOmegaStudios se une a un nuevo proyecto de doblaje.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 TheOmegaStudios. Todos los derechos reservados.</p>
+            </div>
+
+            <div class="footer-right">
+                <div class="contact-info">
+                    <span>CONTÁCTANOS:</span>
+                    <span class="email-text-fixed">aikoproyectooficial@gmail.com</span>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@theomegastudios" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://discord.gg/xpgBBMDjBQ" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. Obtenemos todas las tarjetas y las flechas
+        const carrusel = document.getElementById('carruselContenedor');
+        const items = carrusel.querySelectorAll('.carrusel-item');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        let currentIndex = 0; // Índice de la tarjeta central (active)
+
+        // 2. La función principal que actualiza las clases
+        function updateCarrusel() {
+            const totalItems = items.length;
+            const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+            const nextIndex = (currentIndex + 1) % totalItems;
+
+            items.forEach((item, index) => {
+                item.classList.remove('active', 'prev', 'next');
+            
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                
+                    // --- NUEVO: Añadir clase al CONTENEDOR si el activo es un video ---
+                    if (item.classList.contains('item-video')) {
+                        carrusel.classList.add('active-is-video');
+                    } else {
+                        carrusel.classList.remove('active-is-video');
+                    }
+                    // ------------------------------------------------------------------
+                
+                } else if (index === prevIndex) {
+                    item.classList.add('prev');
+                } else if (index === nextIndex) {
+                    item.classList.add('next');
+                }
+            });
+        }
+
+        // 3. Las funciones de las flechas (cambiadas ligeramente)
+        function cambiarImagen(direccion) {
+            // Obtenemos el total de tarjetas
+            const totalItems = items.length;
+            
+            // Sumamos o restamos al índice actual
+            currentIndex = (currentIndex + direccion + totalItems) % totalItems;
+            
+            // Actualizamos las clases para que se muevan
+            updateCarrusel();
+        }
+
+        // 4. Inicializamos el carrusel al cargar la página
+        //updateCarrusel(); // Llamamos a la función una vez para configurarlo
+        function lanzarFuegos(event) {
+            // Evita que el click interactúe de forma extraña con otros elementos
+            event.stopPropagation();
+
+            // Son los colores que tendrán las chispas de los fuegos artificiales
+            const colores = ['#FF5733', '#33FF57', '#3357FF', '#F3FF33', '#FF33F3', '#33FFF0'];
+            const numeroDeParticulas = 30;
+
+            // Obtenemos la posición exacta del click en la pantalla
+            const x = event.clientX;
+            const y = event.clientY;
+
+            for (let i = 0; i < numeroDeParticulas; i++) {
+                const particula = document.createElement('div');
+                
+                // Estilos CSS rápidos inyectados dinámicamente para cada chispa
+                particula.style.position = 'fixed';
+                particula.style.left = `${x}px`;
+                particula.style.top = `${y}px`;
+                particula.style.width = '6px';
+                particula.style.height = '6px';
+                particula.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+                particula.style.borderRadius = '50%';
+                particula.style.zIndex = '100000';
+                particula.style.pointerEvents = 'none';
+                particula.style.transition = 'all 0.8s ease-out';
+
+                document.body.appendChild(particula);
+
+                // Calculamos un ángulo y distancia aleatoria para la explosión
+                const angulo = Math.random() * Math.PI * 2;
+                const velocidad = Math.random() * 80 + 40; 
+                const destinoX = Math.cos(angulo) * velocidad;
+                const destinoY = Math.sin(angulo) * velocidad;
+
+                // Forzamos al navegador a renderizar y luego aplicamos la animación
+                requestAnimationFrame(() => {
+                    particula.style.transform = `translate(${destinoX}px, ${destinoY}px) scale(0)`;
+                    particula.style.opacity = '0';
+                });
+
+                // Borramos la partícula de la memoria una vez termina su animación
+                setTimeout(() => {
+                    particula.remove();
+                }, 800);
+            }
+        }
+        
+        // Control del Preloader con memoria de sesión
+        document.addEventListener('DOMContentLoaded', () => {
+            const preloader = document.getElementById('preloader');
+            
+            // Comprobamos si el usuario ya vio la animación en esta sesión
+            if (sessionStorage.getItem('preloaderVisto') === 'true') {
+                // Si ya lo vio, lo eliminamos del mapa inmediatamente sin animaciones
+                preloader.style.display = 'none';
+            } else {
+                // Si es la primera vez que entra, esperamos a que cargue todo y lo ocultamos con suavidad
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        preloader.classList.add('preloader-hidden');
+                        // Guardamos en la memoria que ya lo vio
+                        sessionStorage.setItem('preloaderVisto', 'true');
+                    }, 1200); // 1.2 segundos para que disfrute de tu logo la primera vez
+                });
+            }
+        });       
+    </script>
+    <script src="script.js"></script>
+
+    <!-- VENTANA MODAL DE BIENVENIDA -->
+    <div id="welcome-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">&times;</button>
+            
+            <div class="fanart-slider">
+                <div class="slide active">
+                    <img src="img/dibujos.jpg" class="welcome-img">
+                    <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+                </div>
+                <div class="slide">
+                    <img src="img/aiko2131.png" class="welcome-img">
+                    <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+                </div>
+                <div class="slide">
+                    <img src="img/dibujo3.jpg" class="welcome-img">
+                    <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+                </div>
+                <div class="slide">
+                    <img src="img/dibujo4.png" class="welcome-img">
+                    <p class="welcome-text">¡Gracias por los dibujitos :3!</p>
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <span id="prev-fanart" class="prev">&#10094;</span>
+                <span id="next-fanart" class="next">&#10095;</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ELEMENTO EXTRA / SALUDO -->
+    <div class="personaje-saludo sticker-uno">
+        <img src="img/Sticker.png" alt="Sticker" class="sticker-esquina" onclick="lanzarFuegos(event)">
+        <div class="bocadillo-comic">¡Bienvenidos a TheOmegaStudios!</div>
+    </div>
+
+    <div class="personaje-saludo sticker-dos">
+        <a href="https://fandubproyecto01.github.io/ProyectoFandubOficial/" target="_blank" style="pointer-events: auto; display: block;">
+            <img src="img/proyectofandu.png" alt="Sticker" class="sticker-esquina">
+        </a>
+        <div class="bocadillo-comic">¡Echa un vistazo a mis proyectos!</div>
+    </div>
+</html>
