@@ -1,0 +1,2212 @@
+/* Variables de colores para un estilo gaming/oscuro */
+:root {
+    --bg-black: #080808;      /* Fondo principal casi negro */
+    --top-bar-bg: #111111;    /* Barra superior */
+    --accent: #f79c1c;        /* Naranja Omega (parecido a Dragon Ball) */
+    --text-light: #ffffff;    /* Texto principal blanco */
+    --text-muted: #aaaaaa;    /* Texto secundario gris */
+    --font-main: 'Roboto', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; 
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-light);
+    font-family: var(--font-main);
+    line-height: 1.5;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+/*a, button, .nav-btn, #sakura-control {
+    cursor: url('../img/sakurapointhover.png'), pointer;
+}*/
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* 1. Estilos Barra Superior */
+.top-bar {
+    background-color: var(--top-bar-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    height: 70px;
+    border-bottom: 1px solid #222;
+}
+
+.main-logo { height: 60px; } /* Ajusta esto al tamaño de tu logo */
+
+.search-lang { display: flex; align-items: center; gap: 20px; }
+
+.search-box {
+    position: relative;
+    background-color: #222;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    padding-left: 25px;
+}
+
+.search-box i { position: absolute; left: 10px; top: 10px; color: var(--text-muted); }
+
+.lang { color: var(--text-muted); font-size: 14px; cursor: pointer; }
+
+/* 2. Estilos Menú de Navegación */
+.main-nav {
+    background-color: #0c0c0c;
+    border-bottom: 2px solid #222;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 25px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* Efecto hover con icono a color */
+.main-nav li a:hover,
+.main-nav li.active a {
+    color: var(--accent);
+}
+
+.main-nav li a i { font-size: 18px; color: #555; } /* Iconos grisados por defecto */
+
+.main-nav li a:hover i,
+.main-nav li.active a i {
+    color: var(--accent);
+}
+
+/* 3. Estilos Carrusel Simulado */
+.main-content {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Las imágenes secundarias (las de los lados) */
+.card-side {
+    height: 450px;
+    width: 250px;
+    filter: blur(1.5px) grayscale(70%);
+}
+
+.card .overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+}
+
+.card-center .overlay {
+    padding: 40px;
+}
+
+.card-center h1 { font-size: 32px; margin-bottom: 10px; color: var(--text-light); }
+.card-center p { color: var(--text-muted); font-size: 16px; }
+
+/* Flechas de navegación */
+.nav-btn {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: var(--text-light);
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-content: 20;
+}
+
+.prev-btn { left: 10%; }
+.next-btn { right: 10%; }
+
+/* 4. Estilos Caja de Noticias */
+.noticias-caja {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    background-color: #111;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.noticia-header {
+    background-color: var(--accent);
+    padding: 10px 20px;
+}
+
+.noticia-header h2 { font-size: 18px; font-weight: 700; color: #000; letter-spacing: 1px; }
+
+.noticia-body { padding: 20px; }
+.noticia-body ul li { margin-bottom: 15px; color: var(--text-light); }
+.noticia-body strong { color: var(--accent); margin-right: 10px; }
+
+/* 5. Estilos Footer */
+.main-footer {
+    background-color: #0c0c0c;
+    border-top: 1px solid #222;
+    padding: 40px 5%; /* Más espacio arriba y abajo */
+    color: var(--text-muted);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Empuja el contenido a los extremos */
+    align-items: center;
+    flex-wrap: wrap; /* Para que en celulares se vea bien */
+    gap: 20px;
+}
+
+.footer-left p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-right span {
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--accent); /* Tu color naranja */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 20px;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por los iconos */
+.social-icons a:hover {
+    color: var(--accent);
+    transform: translateY(-3px); /* Pequeño salto hacia arriba */
+}
+/* Contenedor principal del panel */
+.status-panel {
+    max-width: 900px;
+    margin: 20px auto;
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Encabezado del panel */
+.status-header {
+    background: #222;
+    color: var(--accent); /* Tu naranja */
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+}
+
+/* Lista de proyectos */
+.status-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #222;
+    transition: background 0.3s;
+}
+
+.status-item:hover {
+    background: #1a1a1a;
+}
+
+.status-item:last-child { border-bottom: none; }
+
+.project-name {
+    font-weight: bold;
+    color: #eee;
+    font-size: 15px;
+}
+
+/* Estilo de las etiquetas (Badges) */
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.badge-online {
+    background: rgba(46, 204, 113, 0.1);
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    animation: blink 2s infinite;
+}
+
+.badge-auditions {
+    background: rgba(243, 156, 18, 0.1);
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    animation: blink 2s infinite; /* ¡Efecto de parpadeo para llamar la atención! */
+}
+
+.badge-prep {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+/* Animación de parpadeo para las audiciones */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+.email-text-fixed {
+    /* Mantenemos lo que ya tenías */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    cursor: default;
+    user-select: all;
+    display: block;
+    margin-top: 5px;
+
+    /* --- ESTA ES LA CLAVE --- */
+    /* Color blanco sólido con '!important' para que nada lo cambie */
+    color: #ffffff !important; 
+}
+
+/* Opcional: Para estar 100% seguros, forzamos blanco también en 'hover' */
+.email-text-fixed:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+.content-aiko {
+    padding: 50px 10%;
+    color: white;
+    text-align: center;
+}
+
+/* El contenedor de las dos columnas */
+.main-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea arriba */
+    gap: 40px; /* Espacio entre la sinopsis y el video */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Ajustamos la sinopsis para que ocupe la mitad */
+.sinopsis {
+    flex: 1; /* Toma la mitad del espacio */
+    text-align: left; /* Texto a la izquierda para que sea más legible */
+    margin: 0; /* Quitamos el margin auto que tenía antes */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--accent);
+}
+
+/* Contenedor del video */
+.video-container {
+    flex: 1; /* Toma la otra mitad del espacio */
+    position: relative;
+    padding-bottom: 28.125%; /* Relación de aspecto 16:9 para la mitad de la pantalla */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- AJUSTE PARA CELULARES --- */
+@media (max-width: 900px) {
+    .main-grid {
+        flex-direction: column; /* Se ponen uno debajo del otro */
+    }
+    .video-container {
+        padding-bottom: 56.25%; /* Video más grande en móvil */
+        width: 100%;
+    }
+}
+/* Contenedor del póster para controlar el tamaño */
+.poster-container {
+    width: 100%;
+    margin-bottom: 20px; /* Espacio antes de la palabra SINOPSIS */
+    display: flex;
+    justify-content: center;
+}
+
+.aiko-poster {
+    width: 100%; /* Se adapta al ancho de la columna de sinopsis */
+    max-width: 400px; /* Pero no dejamos que sea más ancha que esto para que no se vea gigante */
+    height: auto; /* Mantiene la proporción 5906x8268 sin deformarse */
+    border-radius: 8px;
+    border: 2px solid rgba(255, 165, 0, 0.3); /* Un borde naranja sutil */
+    box-shadow: 0px 0px 20px rgba(255, 165, 0, 0.2); /* Un brillo naranja suave */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto opcional: al pasar el mouse, el póster resalta */
+.aiko-poster:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 30px rgba(255, 165, 0, 0.5);
+    border-color: var(--accent);
+}
+.content-proyectos {
+    padding: 50px 10%;
+    color: white;
+}
+
+.proyectos-title {
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+/* Contenedor principal de las tarjetas */
+.proyectos-container {
+    display: grid;
+    /* Esto crea las 2 columnas iguales */
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px; /* Espacio entre las tarjetas */
+    max-width: 1200px; /* Un poco más ancho para que quepan bien las dos */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Ajuste de la tarjeta para que el logo y el texto sigan funcionando bien */
+.proyecto-card {
+    display: flex;
+    flex-direction: column; /* Cambiamos a vertical para que quepan mejor en la columna */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 20px;
+    transition: 0.3s;
+    text-align: center; /* Centramos el texto para este diseño */
+}
+
+/* El cuadro blanco del logo ajustado */
+.proyecto-logo {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    height: 180px; /* Altura fija para que todas las tarjetas midan lo mismo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proyecto-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Responsivo: Si alguien lo ve en celular, vuelve a 1 sola columna */
+@media (max-width: 850px) {
+    .proyectos-container {
+        grid-template-columns: 1fr;
+    }
+}
+.proyecto-info h2 {
+    color: white; /* Cambia var(--accent) por 'white' si las quieres blancas */
+    margin-bottom: 10px;
+}
+
+.proyecto-info p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.status {
+    display: inline-block; /* Para que respete el padding */
+    margin-top: 15px;
+    padding: 5px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase; /* Todo en mayúsculas se ve más pro */
+    color: var(--accent); /* El naranja de tus títulos */
+    border: 1px solid var(--accent);
+    border-radius: 20px; /* Bordes redondeados tipo píldora */
+    background: rgba(255, 140, 0, 0.1); /* Un fondo naranja muy transparente */
+    letter-spacing: 1px;
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+    .proyecto-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .proyecto-logo {
+        flex: 0 0 auto;
+        width: 150px;
+    }
+}
+/* Color para los que están en desarrollo */
+.status.desarrollo {
+    color: #ff8c00;
+    border-color: #ff8c00;
+}
+.status.pronto {
+    color: #00ccff; /* Un azul cian para variar */
+    border-color: #00ccff;
+    background: rgba(0, 204, 255, 0.1);
+}
+/* Color específico para proyectos Pendientes */
+.status.pendiente {
+    color: #ff4d4d; /* Un rojo vibrante */
+    border-color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.1); /* Brillo rojo muy suave de fondo */
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.2); /* Un pequeño resplandor */
+}
+.aiko-origins-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Espacio entre el logo y el texto */
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo para el pequeño logo que irá dentro del título */
+.aiko-origins-title img {
+    height: 50px; /* Ajusta el tamaño según tu logo */
+    width: auto;
+}
+
+
+
+
+/* Contenedor principal: asegura que las tarjetas se pongan de lado */
+.cast-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* La Tarjeta: ahora con un ancho fijo para que quepan 2 */
+.cast-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #121212;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 15px;
+    width: 580px; /* Ancho fijo para que no se estiren */
+    box-sizing: border-box; /* Evita que el padding sume al ancho */
+}
+
+/* Fotos: Tamaño controlado para que no rompan el diseño */
+.character-side img, .actor-side img {
+    width: 100px;  /* Tamaño fijo */
+    height: 100px; /* Tamaño fijo */
+    object-fit: cover;
+    border: 2px solid #ff9900;
+    border-radius: 10px; /* Opcional: bordes un poco redondeados para que no sea un cuadrado seco */
+}
+
+.character-side, .actor-side {
+    flex: 0 0 110px; /* No permite que las columnas de las fotos crezcan más de esto */
+    text-align: center;
+}
+
+/* Texto central */
+.cast-description {
+    flex: 1;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.cast-description p {
+    font-size: 0.85rem; /* Texto un poco más pequeño para que quepa bien */
+    line-height: 1.4;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+/* Audio: para que no se salga */
+audio {
+    width: 100%;
+    height: 30px;
+}
+/* Responsive para celulares */
+@media (max-width: 768px) {
+    .cast-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.about-section {
+    background-color: #0a0a0a; /* Fondo oscuro como tu captura */
+    color: #ffffff;
+    padding: 50px 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    color: #ff9900; /* El naranja de tu menú */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro {
+    font-style: italic;
+    font-size: 1.2rem;
+    border-left: 4px solid #ff9900;
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.about-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+/* Estilo general para la imagen */
+.about-image {
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center;
+    padding: 20px;
+}
+
+.about-image img {
+    width: 300px; /* Tamaño máximo en PC */
+    height: auto;
+    border-radius: 15px; /* Opcional, para bordes suaves */
+    transition: transform 0.3s ease;
+}
+
+/* --- AJUSTE PARA CELULARES --- */
+@media (max-width: 768px) {
+    .about-image img {
+        width: 80%; /* En celular, ocupa el 80% del ancho de la pantalla */
+        max-width: 350px; /* Pero que no se pase de este tamaño */
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Si el texto y la imagen están uno al lado del otro, 
+       esto hará que la imagen se ponga debajo del texto */
+    .about-section-container { 
+        display: flex;
+        flex-direction: column; 
+        text-align: center;
+    }
+}
+
+.page-title {
+    width: 100%;          /* Que ocupe todo el ancho */
+    text-align: center;   /* Centra el texto */
+    margin-top: 40px;     /* Espacio arriba */
+    margin-bottom: 20px;  /* Espacio antes de los cuadros */
+    color: white;         /* Aseguramos que sea blanco */
+    display: block;       /* Asegura que se comporte como un bloque independiente */
+}
+
+
+.search-lang {
+    display: flex;       /* Los pone uno al lado del otro */
+    align-items: center; /* Los centra verticalmente */
+    gap: 15px;           /* Les da espacio entre ellos */
+}
+
+.music-container {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+/* El slider de volumen */
+#volume-slider {
+    width: 0; /* Empieza oculto */
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    accent-color: #ff9900; /* Color naranja de tu marca */
+}
+
+/* Cuando pasas el mouse, se expande la barra */
+.music-container:hover #volume-slider {
+    width: 80px;
+    opacity: 1;
+    margin-left: 10px;
+}
+
+.nav-music-btn {
+    background: none;
+    border: none;
+    color: #ff9900;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+/*imagen fondo   */
+body {
+    /* La ruta debe ser donde esté tu imagen */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/BN43P.jpg');
+    
+    /* Esto hace que la imagen cubra toda la pantalla sin repetirse */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* El fondo no se mueve al bajar con el mouse */
+    background-repeat: no-repeat;
+    
+    /* Color de respaldo por si la imagen no carga */
+    background-color: #000; 
+    
+    margin: 0;
+    color: white; /* Para que todo el texto sea blanco por defecto */
+}
+
+/* IMPORTANTE: Para que el header y el nav se mantengan negros solidos 
+y no se vea el fondo a través de ellos */
+.top-bar, .main-nav {
+    background-color: #000 !important;
+    position: relative;
+    z-index: 100;
+}
+
+
+/* La barrita de la derecha */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #000; 
+}
+::-webkit-scrollbar-thumb {
+    background: #ff9900; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #e68a00; 
+}
+
+
+.sakura {
+    position: fixed;
+    top: -50px;
+    z-index: 99; /* Para que caigan delante del fondo pero detrás de los botones */
+    pointer-events: none; /* Para que no te impidan hacer clic en los botones */
+    background: linear-gradient(to bottom right, #ffb7c5, #ff99aa);
+    border-radius: 100% 0 100% 0; /* Forma de pétalo */
+    opacity: 0.8;
+    transform-style: preserve-3d;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotateX(0) rotateY(0);
+    }
+    100% {
+        top: 110%;
+        transform: translateX(100px) rotateX(720deg) rotateY(360deg);
+    }
+}
+/* --- ESTO VA AL FINAL DEL ARCHIVO index.css --- */
+
+#sakura-control {
+    min-width: 30px; /* Evita que se colapse */
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important; /* Fuerza a que se vea */
+}
+.control-hoja-wrapper {
+    margin-right: 15px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sakura-control:hover {
+    transform: scale(1.2); /* Se agranda un poquito al pasar el mouse */
+}
+
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fondo negro traslúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Por encima de todo, incluso de los pétalos */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* Cuando el modal esté activo */
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 500px;
+    text-align: center;
+}
+
+.welcome-img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); /* Brillo naranja como tu tema */
+}
+
+/* El botón de cerrar en la esquina */
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10001;
+}
+
+
+
+.fanart-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    display: none; /* Escondemos todas */
+    animation: fade 0.5s ease;
+}
+
+.slide.active {
+    display: block; /* Solo mostramos la activa */
+}
+
+@keyframes fade {
+    from { opacity: 0.4; } 
+    to { opacity: 1; }
+}
+
+.slider-controls {
+    margin-top: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/* ============================================================
+   SECCIÓN RESPONSIVA (PARA MÓVILES Y TABLETS)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Ajuste de la barra superior */
+    .top-bar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .search-lang {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* 2. Ajuste del Menú de Navegación */
+    .main-nav ul {
+        flex-wrap: wrap; /* Permite que los botones bajen si no caben */
+    }
+    
+    .main-nav li a {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    /* 3. Ajuste del Carrusel (Lo más importante para tu error) */
+    .carrusel-simulado {
+        height: auto;
+        min-height: 500px;
+        perspective: none; /* Quitamos 3D en móvil para evitar errores visuales */
+    }
+
+    .carrusel-item.active {
+        width: 90% !important; /* Que ocupe casi todo el ancho del cel */
+        height: 450px !important;
+        position: relative;
+        transform: none !important;
+    }
+
+    /* Ocultamos las imágenes laterales en móvil para que no estorben */
+    .carrusel-item.prev, .carrusel-item.next {
+        display: none; 
+    }
+
+    /* 4. Ajuste de la Grilla (Sinopsis y Video) */
+    .main-grid {
+        flex-direction: column; /* Video arriba, texto abajo o viceversa */
+        align-items: center;
+    }
+
+    .sinopsis, .video-container {
+        width: 100% !important;
+        flex: none;
+    }
+
+    /* 5. Ajuste del Reparto (Cast) */
+    .cast-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cast-row {
+        width: 100% !important; /* Ya no es 580px, ahora es el ancho del cel */
+        flex-direction: column; /* Foto - Texto - Foto en vertical */
+        text-align: center;
+    }
+
+    .character-side, .actor-side {
+        margin-bottom: 10px;
+    }
+
+    /* 6. Proyectos */
+    .proyectos-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    /* 7. Footer */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Ajuste extra para pantallas muy pequeñas (iPhone SE, etc.) */
+@media (max-width: 480px) {
+    .aiko-origins-title {
+        font-size: 1.8rem;
+    }
+    
+    .main-nav li a {
+        padding: 8px;
+        font-size: 11px;
+    }
+}
+/* Sticker */
+
+/* --- CONTENEDOR BASE --- */
+/* --- CONTENEDOR BASE --- */
+.personaje-saludo {
+    position: fixed;
+    right: -45px; /* Distancia desde la derecha para ambos */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column-reverse; /* El sticker abajo, el globo arriba */
+    align-items: center;
+    pointer-events: none; /* No estorba al hacer clic general */
+}
+
+/* --- POSICIONAMIENTO INDIVIDUAL (Alturas en la pantalla) --- */
+.sticker-uno {
+    bottom: 140px; /* Altura original de tu primer sticker */
+}
+
+.sticker-dos {
+    bottom: 30px;  /* Altura para el segundo sticker (más abajo) */
+}
+
+
+/* --- PROPIEDADES DEL STICKER (IMAGEN) --- */
+.sticker-esquina {
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+    pointer-events: auto; /* Solo el sticker reacciona al mouse */
+    transition: transform 0.3s ease;
+    z-index: 10000;
+}
+
+/* Efecto Hover individual de la imagen */
+.sticker-esquina:hover {
+    transform: scale(1.1); /* <--- Quitamos el 'rotate(5deg)' para que no se tuerza */
+}
+
+/* --- ACTIVACIÓN DE LOS BOCADILLOS AL HACER HOVER --- */
+/* Activa el bocadillo del primer sticker */
+.sticker-uno .sticker-esquina:hover + .bocadillo-comic {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Activa el bocadillo del segundo sticker */
+.sticker-dos .sticker-esquina:hover + .bocadillo-comic {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- ESTILO GENERAL DEL BOCADILLO --- */
+.bocadillo-comic {
+    position: relative;
+    background: #ffffff;
+    right: 85px; /* <--- AGREGA ESTO: Mueve el globo de texto hacia la izquierda para que no se salga de la pantalla */
+    border: 4px solid #000000; 
+    border-radius: 20px;
+    padding: 12px 18px;
+    color: #000;
+    font-weight: 900;
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    min-width: 160px;
+    max-width: 220px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+}
+
+/* --- SEPARACIÓN DEL BOCADILLO (MÁRGENES INDIVIDUALES) --- */
+.sticker-uno .bocadillo-comic {
+    margin-bottom: 30px; /* Tu margen original que querías mantener */
+}
+
+.sticker-dos .bocadillo-comic {
+    margin-bottom: 25px; /* Un margen un poco menor para el de abajo para que no choque con el de arriba */
+}
+
+
+/* --- LA COLITA DEL BOCADILLO (IGUAL PARA AMBOS) --- */
+.bocadillo-comic::after, .bocadillo-comic::before {
+    content: '';
+    position: absolute;
+    left: 80%;
+    transform: translateX(-50%);
+    border-style: solid;
+}
+
+.bocadillo-comic::after {
+    bottom: -15px;
+    border-width: 15px 10px 0;
+    border-color: #000 transparent transparent;
+}
+
+.bocadillo-comic::before {
+    bottom: -10px;
+    border-width: 12px 8px 0;
+    border-color: #fff transparent transparent;
+    z-index: 1;
+}
+
+
+
+/* Contenedor de la columna de la derecha */
+.videos-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio generoso entre los dos bloques de video */
+    padding-top: 20px;
+}
+
+/* El bloque que contiene el título y el video */
+.video-block {
+    width: 100%;
+}
+
+/* El contenedor del video con proporción 16:9 fija */
+.video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Esto mantiene la forma perfecta de video */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* El iframe ocupa todo el contenedor */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Títulos de los videos */
+.video-title {
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    border-left: 3px solid var(--accent); /* Un detalle visual lateral */
+    padding-left: 10px;
+}
+
+
+/* Forzamos que el contenedor no limite el tamaño */
+.hero-aiko {
+    width: 100% !important;
+    max-width: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-logo {
+    /* Bajamos el tamaño a uno más equilibrado */
+    width: 550px !important; 
+    
+    /* Mantenemos estas reglas para que no se rompa nada */
+    height: auto !important;
+    max-width: 90vw !important; 
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.4));
+    margin-top: 10px !important;
+    transition: transform 0.3s ease;
+}
+
+/* Reducimos un poco el margen del título para que suba un poco más */
+.aiko-origins-title {
+    margin: 15px 0 !important; 
+}
+.hero-logo:hover {
+    transform: scale(1.05); /* Un pequeño efecto cuando pasas el mouse */
+}
+
+
+
+/* Borra todas las versiones anteriores de .easter-egg y deja solo esta */
+.easter-egg {
+    position: absolute; /* Para que se mueva con el scroll */
+    top: 850px;         /* Ajusta este número hasta que lo veas sobre el paisaje */
+    left: 50px;        /* Distancia desde la izquierda */
+    z-index: 100;
+    width: 40px;
+    cursor: pointer;
+}
+
+.encontrado {
+    filter: drop-shadow(0 0 10px #ff8c00);
+    pointer-events: none;
+}
+
+.btn-descarga {
+    background-color: #ff8c00;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-descarga:hover {
+    background-color: #e67e00;
+    transform: scale(1.05);
+}
+
+/* Contenedor padre debe ser relative */
+body {
+    position: relative;
+}
+
+/* Estilo base de los stickers */
+.easter-egg {
+    position: absolute;
+    width: 35px; /* Tamaño del sticker */
+    cursor: pointer;
+    opacity: 0.5; /* Un poco transparente para que sea difícil de ver */
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.easter-egg:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Efecto cuando ya lo encontraste */
+.easter-egg.encontrado {
+    filter: drop-shadow(0 0 10px #ff8c00); /* Brillo naranja */
+    opacity: 1 !important;
+    pointer-events: none; /* Ya no se puede clickear más */
+}
+
+/* Estilo de la ventana del premio */
+/* Ventana del premio centradita */
+#premio-secreto {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(20, 20, 20, 0.98); /* Fondo casi negro */
+    border: 3px solid #ff8c00;
+    padding: 20px;
+    z-index: 100000; /* Por encima de TODO */
+    text-align: center;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
+    width: 90%;
+    max-width: 400px; /* Para que no sea gigante */
+}
+
+/* ESTO ES LO MÁS IMPORTANTE: Controla la imagen del póster */
+#premio-secreto img {
+    width: 100%;       /* Se ajusta al ancho del cuadro */
+    height: auto;      /* No se deforma */
+    max-height: 350px; /* No deja que crezca hacia abajo infinito */
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #333;
+}
+
+/* Botón de cerrar para que no estorbe */
+#premio-secreto button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+
+
+/* El contenedor negro ya lo tienes, solo asegúrate de que sea ancho */
+.lore-container {
+    max-width: 95%;      /* Casi todo el ancho de la pantalla */
+    width: 1300px;       /* Pero con un tope para que no se deforme en monitores 4K */
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;       /* Reducimos un poco el padding lateral */
+    border-radius: 20px;
+}
+
+/* La caja de cada mapa */
+.mapa-wrapper {
+    width: 100%;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el título y el mapa */
+}
+
+.mapa-wrapper h3 {
+    color: #ff8c00;
+    text-align: left;    /* O center, como prefieras */
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+/* La imagen del mapa propiamente */
+.mapa-img-grande {
+    width: 100%;         /* Ocupa el 100% del contenedor negro */
+    max-width: 100%;     /* Quitamos cualquier límite anterior */
+    height: auto;
+    border: 3px solid rgba(255, 140, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    object-fit: cover;   /* Esto ayuda a que se vea bien llenito */
+}
+
+.mapa-img-grande:hover {
+    border-color: #ff8c00;
+}
+
+/* 1. Contenedor del mapa con hover */
+.mapa-hover-container {
+    position: relative;     /* Permite que las imágenes se apilen dentro */
+    width: 100%;            /* Ocupa todo el ancho del contenedor negro */
+    max-width: 1200px;      /* Para que no crezca infinito */
+    margin: 0 auto;         /* Centrado */
+    border-radius: 15px;
+    border: 3px solid rgba(255, 140, 0, 0.4);
+    overflow: hidden;       /* Corta lo que sobresalga de los bordes redondeados */
+    background-color: #111; /* Fondo oscuro por si tarda en cargar */
+    line-height: 0;         /* Quita espacios fantasmas debajo de la imagen */
+}
+
+/* 2. Estilo base para ambas imágenes */
+.mapa-base, .mapa-overlay {
+    width: 100%;            /* Se estiran al ancho del contenedor */
+    height: auto;           /* Mantienen la proporción */
+    display: block;
+    transition: opacity 0.5s ease-in-out; /* Desvanecimiento suave */
+}
+
+/* 3. La imagen de NOMBRES (Overlay) */
+.mapa-overlay {
+    position: absolute;     /* Se despega del flujo y se pone ENCIMA de la base */
+    top: 0;
+    left: 0;
+    opacity: 0;             /* Invisible por defecto */
+    z-index: 2;             /* Capa superior */
+}
+
+/* 4. LA MAGIA: Al pasar el mouse por el contenedor... */
+.mapa-hover-container:hover .mapa-overlay {
+    opacity: 1;             /* Se vuelve visible */
+}
+
+/* 5. Asegurar que el título de ese mapa sea igual a los demás */
+.mapa-wrapper h3 {
+    color: #ff8c00;
+    margin: 20px 0 15px 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+
+.clan-card {
+    background: rgba(255, 255, 255, 0.05); /* Un gris muy oscuro casi transparente */
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ff8c00; /* La línea naranja característica */
+    transition: transform 0.3s ease;
+}
+
+.clan-card:hover {
+    transform: translateY(-5px); /* Se eleva un poquito al pasar el mouse */
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* El truco principal: convierte el contenedor en dos columnas */
+.mapa-y-texto-flex {
+    display: flex;
+    align-items: flex-start; /* Alinea arriba */
+    gap: 30px;               /* Espacio entre el mapa y el texto */
+    margin: 40px 0;
+}
+
+/* El mapa ocupará el 60% del ancho */
+.side-map {
+    flex: 60;
+    margin-bottom: 0 !important; /* Quitamos margen para que no se desfase */
+}
+
+/* El texto ocupará el 40% del ancho */
+.side-text {
+    flex: 40;
+    margin-top: 0 !important;
+    padding: 0 10px;
+}
+
+/* Ajuste para que las tarjetas de clanes se vean bien en columna */
+.side-text .clanes-grid {
+    grid-template-columns: 1fr; /* Una sola columna de tarjetas */
+}
+
+/* RESPONSIVE: Si la pantalla es pequeña (celular), se ponen uno abajo del otro */
+@media (max-width: 900px) {
+    .mapa-y-texto-flex {
+        flex-direction: column;
+    }
+    .side-map, .side-text {
+        flex: 100;
+        width: 100%;
+    }
+}
+
+
+/* Estilo para la descripción del mapa */
+.mapa-descripcion {
+    background: rgba(255, 140, 0, 0.1); /* Un toque naranja muy suave */
+    border-top: 2px solid #ff8c00;      /* Línea naranja arriba para separar */
+    padding: 20px;
+    margin-top: -5px;                   /* Para que pegue con la imagen si no hay borde */
+    border-radius: 0 0 15px 15px;       /* Redondeado solo abajo */
+    text-align: center;
+}
+
+.mapa-descripcion p {
+    color: #cccccc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    font-style: italic; /* Le da un toque de "crónica" o leyenda */
+}
+
+/* Resaltado de palabras clave en el texto */
+.mapa-descripcion strong {
+    color: #ff8c00;
+}
+
+.logos-regiones-container {
+    display: flex;
+    flex-wrap: wrap;          /* ¡ESTO ES LO MÁS IMPORTANTE! Permite que salten de línea */
+    justify-content: center;  /* Centra los logos si hay menos de 5 */
+    gap: 20px;                /* Espacio entre logos */
+    background: rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 140, 0, 0.2);
+}
+
+.logo-item {
+    /* Calculamos el ancho para que entren exactamente 5 por fila (20% cada uno) */
+    /* Restamos un poco por el "gap" o espacio entre ellos */
+    flex: 0 0 calc(20% - 20px); 
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-width: 100px; /* Para que en celulares no se vean diminutos */
+}
+
+.logo-item img {
+    width: 65px; 
+    height: 65px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.logo-item span {
+    display: block;
+    font-size: 0.75rem; /* Un poco más pequeño para que no se amontone el texto */
+    color: #ff8c00;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* Efecto al pasar el mouse por cada logo */
+.logo-item:hover {
+    transform: scale(1.1);
+}
+
+.logo-item:hover img {
+    filter: drop-shadow(0 0 10px #ff8c00);
+}
+
+/* Esto ajusta el contenedor principal y la columna de videos en celulares */
+@media (max-width: 768px) {
+    /* Si el div de la línea 95 tiene una clase, úsala aquí. 
+       Si no, este código ajustará la sección directamente */
+    .videos-column {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px; /* Espacio pequeño a los lados para que no pegue al borde */
+        margin: 0 auto;
+    }
+
+    .video-container {
+        width: 100% !important;
+        /* El aspect-ratio que ya tienes (16/9) hará el resto */
+    }
+
+    .video-title {
+        font-size: 1.2rem; /* Un poco más grande para que se lea bien */
+        padding-left: 15px;
+    }
+/* --- AJUSTE DE FLECHAS PARA MÓVIL --- */
+/* Ajuste para que los botones aparezcan sobre el póster en celular */
+    .nav-btn {
+        display: flex !important; /* Forzamos a que se muestren */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 9999; /* Super importante: esto los pone al frente de todo */
+        background-color: rgba(0, 0, 0, 0.5) !important; 
+        border: none; /* Opcional: quita el borde si no lo quieres */
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        outline: none;
+    }
+
+    /* Posición de cada flecha */
+    .prev-btn {
+        left: 10px !important;
+    }
+
+    .next-btn {
+        right: 10px !important;
+    }
+
+    /* Tamaño de los iconos de flecha */
+    .nav-btn i {
+        color: white;
+        font-size: 20px;
+    }
+
+    /* IMPORTANTE: Reducimos un poquito el póster para que no choque con las flechas */
+    .carrusel-item.active {
+        width: 80% !important; /* Bajamos de 90% a 80% */
+        margin: 0 auto;
+    }
+}
+
+
+/* Contenedor principal */
+.gallery-section {
+    padding: 40px 10%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Un fondo oscuro semitransparente para que resalte */
+    min-height: 60vh; /* Para que ocupe espacio si hay pocas fotos */
+}
+
+.gallery-title {
+    color: #ff9900; /* Color naranja como el de tu menú */
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Esto obliga a que siempre haya 3 columnas en pantallas grandes */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+/* Y esto es para que en celulares se pongan de a 1 o 2 y no se vean chiquitos */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+/* Estilo de cada cuadro de imagen */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto evita que las fotos se estiren feo */
+    display: block;
+}
+
+/* Efecto al pasar el mouse */
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: #ff9900;
+}
+
+
+
+
+
+
+
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.pj-slider-wrapper {
+    position: relative;
+    /* Cambiamos width por fit-content para que no sobre espacio a los lados */
+    width: fit-content; 
+    max-width: 90%; 
+    margin: 40px auto;
+}
+
+/* --- LA MÁSCARA (RECORTA LAS IMÁGENES) --- */
+.pj-slider-mask {
+    /* Quitamos el width: 100% y dejamos que la imagen mande */
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: white; /* Cambiado a blanco sólido para que se vea limpio */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- EL RIEL DE DIAPOSITIVAS --- */
+.pj-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    align-items: center;
+}
+
+/* --- CADA DIAPOSITIVA --- */
+.pj-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pj-slide img {
+    /* Cambiamos width: 100% por auto para que no se estire de más */
+    width: auto; 
+    max-width: 100%; /* Para que no se salga en pantallas chicas */
+    max-height: 500px; 
+    display: block;
+    /* Quitamos object-fit porque ya no lo necesitamos */
+}
+
+/* --- FLECHAS (AFUERA) --- */
+.pj-prev, .pj-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff6600; /* Color naranja de tu logo */
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 100;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Posicionamiento negativo para sacarlas del cuadro */
+.pj-prev {
+    left: -65px; 
+}
+
+.pj-next {
+    right: -65px;
+}
+
+/* Efecto hover */
+.pj-prev:hover, .pj-next:hover {
+    background-color: white;
+    color: #ff6600;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* --- AJUSTE PARA MÓVILES --- */
+/* Si la pantalla es pequeña, las flechas vuelven adentro para no salirse del celular */
+@media (max-width: 1100px) {
+    .pj-slider-wrapper {
+        width: 90%;
+    }
+    .pj-prev { left: 10px; }
+    .pj-next { right: 10px; }
+}
+
+
+.pj-single-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;    /* <--- Añade esto para que respire */
+    margin-bottom: 40px; /* Un poco más de espacio antes de la galería */
+    padding: 0 20px;
+}
+
+.pj-banner-1 {
+    /* 1. Lo hacemos más pequeño (estaba al 100%) */
+    width: 90%; 
+    
+    display: flex;
+    /* 2. Alineamos a la izquierda en lugar de al centro */
+    justify-content: flex-start; 
+    align-items: center;
+    
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    
+    /* 3. Empujamos hacia la izquierda */
+    /* Si quieres que se salga un poco de la pantalla, usa un valor negativo mayor */
+    margin-left: -80px; 
+}
+
+.pj-banner-2 {
+    /* 1. Lo hacemos más pequeño */
+    width: 90%; 
+    
+    display: flex;
+    /* 2. Alineamos el contenido hacia la derecha */
+    justify-content: flex-end; 
+    align-items: center;
+    
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    
+    /* 3. Empujamos hacia la derecha */
+    /* Usamos margin-right negativo para que "asome" por la derecha */
+    margin-right: -80px; 
+    
+    /* 4. Mantenemos el flujo para que no choque con el de arriba */
+    margin-left: auto; 
+}
+
+
+
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.main-content {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.carrusel-simulado {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 750px; /* Recuperamos la altura original para portadas grandes */
+    overflow: hidden;
+    margin-bottom: 50px;
+    perspective: 1000px;
+}
+
+.carrusel-contenedor {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- ESTILOS BASE DE LAS TARJETAS --- */
+.carrusel-item {
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    z-index: 1;
+    will-change: transform, opacity;
+    overflow: hidden;
+}
+
+/* --- FORMATOS EN BASE A SU CLASE --- */
+
+/* Cómics (Tamaño base para laterales) */
+.item-imagen {
+    height: 500px; 
+    width: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Tráiler de YouTube (Horizontal 16:9) */
+.item-video {
+    width: 800px;
+    height: 450px;
+}
+/* Configuración interna del reproductor */
+.carrusel-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* --- CONTROL 3D CON DISTANCIAS CALCULADAS --- */
+
+/* 1. TARJETA CENTRAL (ACTIVE) */
+.carrusel-item.active {
+    opacity: 1;
+    z-index: 10;
+    filter: blur(0px) grayscale(0%);
+    box-shadow: 0 0 40px rgba(247, 156, 28, 0.4);
+    border: 2px solid var(--accent, #f79c1c);
+}
+
+/* Cuando el cómic está al centro: ¡CRECE al tamaño gigante de tu segunda foto! */
+.carrusel-item.active.item-imagen {
+    height: 700px;
+    width: 500px;
+    transform: translateX(0) scale(1) rotateY(0deg);
+}
+
+/* Cuando el video está al centro */
+.carrusel-item.active.item-video {
+    transform: translateX(0) scale(1) rotateY(0deg);
+}
+
+
+/* 2. TARJETAS LATERALES (PREV / NEXT) */
+.carrusel-item.prev, 
+.carrusel-item.next {
+    opacity: 1; /* Recuperamos la opacidad total para que brillen como antes */
+    z-index: 2;
+    filter: blur(1px) grayscale(50%);
+}
+
+/* CUANDO EL CENTRO ES UN CÓMIC (Distancia bien pegadita como en la foto) */
+.carrusel-item.prev {
+    transform: translateX(-350px) scale(0.8) rotateY(-10deg);
+}
+.carrusel-item.next {
+    transform: translateX(350px) scale(0.8) rotateY(10deg);
+}
+
+/* CUANDO EL CENTRO ES EL VIDEO (Se abren un poquito más automático para no pisarse) */
+.active-is-video .carrusel-item.prev {
+    transform: translateX(-350px) scale(0.8) rotateY(-10deg);
+}
+.active-is-video .carrusel-item.next {
+    transform: translateX(350px) scale(0.8) rotateY(10deg);
+}
+
+/* --- BOTONES DE NAVEGACIÓN (FLECHAS) --- */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100 !important; /* Prioridad absoluta */
+    cursor: pointer;
+}
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+
+/* --- TEXTOS SOBRE LAS TARJETAS (OVERLAYS) --- */
+.carrusel-item .overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    pointer-events: none;
+}
+
+.carrusel-item.active .overlay {
+    opacity: 1;
+}
+
+.carrusel-item.active h1 {
+    font-family: sans-serif;
+    font-size: 32px; /* Volvemos al tamaño de fuente original */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+    -webkit-text-stroke: 2px #000;
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+}
+
+.carrusel-item.active p {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+/* Deshabilita clics en los videos si están en los laterales */
+.item-video.prev iframe, 
+.item-video.next iframe {
+    pointer-events: none;
+}
+
+
+
+/* --- ETIQUETA FLOTANTE "LO MÁS VISTO" (DENTRO PERO VISIBLE) --- */
+.badge-destacado {
+    position: absolute;
+    top: -35px; /* Sube exactamente arriba del borde del video */
+    left: 0; /* Se alinea perfecto con el borde izquierdo del video */
+    z-index: 99; /* Por encima de todo */
+    background: rgba(18, 18, 18, 0.95);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid var(--accent, #f79c1c);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* CUANDO EL VIDEO ESTÁ AL CENTRO: Permitimos que la etiqueta "salga" de la tarjeta y se muestre */
+.carrusel-item.active.item-video {
+    overflow: visible !important; /* ¡Rompe el recorte para dejar ver la etiqueta! */
+}
+
+/* Mostramos la etiqueta con animación */
+.carrusel-item.active .badge-destacado {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* === ESTILOS DEL PRELOADER === */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000; /* Fondo totalmente negro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999; /* Asegura que esté por encima de TODO */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.preloader-logo {
+    max-width: 400px; /* Ajusta el tamaño de tu logo aquí */
+    height: auto;
+    animation: pulse 1.8s infinite ease-in-out; /* Efecto de latido opcional */
+}
+.preloader-gif {
+    max-width: 100px;  /* Ajusta este número para cambiar el tamaño del GIF en PC */
+    height: auto;
+    margin-top: 10px; /* Le da un espacio de separación con el logo */
+}
+
+/* Animación opcional de latido para el logo */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Efecto de desvanecimiento cuando se oculta */
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* === ADAPTACIÓN DEL PRELOADER PARA MÓVILES === */
+@media (max-width: 768px) {
+    .preloader-logo {
+        max-width: 140px; /* Reducimos el tamaño del logo en celulares */
+        padding: 0 20px;   /* Evita que toque los bordes en pantallas muy pequeñas */
+    }
+
+    .preloader-gif {
+        max-width: 60px; /* Un poco más pequeño en celulares para que quepa bien */
+    }
+}
+
+
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares)
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - ACTUALIZADO CON CONTENCIÓN
+   ========================================================================== */
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - ACTUALIZADO CON CONTENCIÓN
+   ========================================================================== */
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - VERSIÓN FINAL CORREGIDA
+   ========================================================================== */
+/* ==========================================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES (Celulares) - REESCRITO
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    .gallery-section {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    .gallery-title {
+        font-size: 22px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    /* BANNERS */
+    .pj-single-banner, .pj-banner-1, .pj-banner-2 {
+        width: 100% !important;
+        height: auto !important; 
+        margin: 12px 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        float: none !important; 
+    }
+
+    .pj-single-banner img, .pj-banner-1 img, .pj-banner-2 img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain;
+        border-radius: 8px; 
+    }
+
+    /* GALERÍA DE ARTE (SLIDER EN CELULAR) */
+    .pj-slider-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 15px auto !important;
+        position: relative;
+    }
+
+    .pj-slider-mask {
+        width: 100% !important;
+        height: 420px !important; /* Forzamos una altura fija a la máscara en celular */
+        overflow: hidden !important;
+    }
+
+    .pj-slides {
+        display: flex !important;
+        height: 100% !important;
+    }
+
+    .pj-slide {
+        min-width: 100% !important; 
+        width: 100% !important;
+        height: 100% !important; /* Se adapta a los 420px de la máscara */
+        padding: 0 10px !important; 
+        box-sizing: border-box !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* Redimensiona la imagen para que quepa obligatoriamente en el espacio disponible */
+    .pj-slide img {
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 100% !important;
+        object-fit: contain !important; /* Muestra el dibujo completo sin recortar nada */
+        border-radius: 8px;
+    }
+
+    /* BOTONES */
+    .pj-prev, .pj-next {
+        padding: 10px 12px !important;
+        font-size: 16px !important;
+        background: rgba(0, 0, 0, 0.7) !important; 
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 10;
+    }
+    .pj-prev { left: 10px !important; }
+    .pj-next { right: 10px !important; }
+}
+
+
+/* ==========================================================================
+   ESTILOS DE LA LÍNEA DE TIEMPO (TIMELINE)
+   ========================================================================== */
+
+.timeline-section {
+    background-color: #0b0b0b; /* Fondo oscuro a juego con tu web */
+    padding: 60px 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.timeline-title {
+    text-align: center;
+    color: #ff7300; /* Tu naranja característico */
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px; /* Espacio para la línea vertical */
+}
+
+/* La línea vertical que conecta los puntos */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff7300, #333);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* El punto de la línea de tiempo */
+.timeline-dot {
+    position: absolute;
+    left: -26px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff7300;
+    box-shadow: 0 0 8px #ff7300;
+    z-index: 2;
+}
+
+/* El año o texto de la izquierda */
+.timeline-date {
+    color: #ff7300;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+/* La tarjeta con el contenido */
+.timeline-content {
+    background-color: #141414; /* Gris oscuro para contrastar con el fondo */
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 3px solid #ff7300; /* Detalle naranja al lado */
+}
+
+.timeline-content h3 {
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.timeline-content p {
+    color: #cccccc;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Ajustes responsivos opcionales */
+@media (max-width: 600px) {
+    .timeline-title {
+        font-size: 1.6rem;
+    }
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+
